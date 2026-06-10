@@ -77,14 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Meso Market Lede — Buurtwinkel in Lede" },
+      { name: "description", content: "Meso Market Lede — uw vriendelijke buurtwinkel aan Markt 8 in Lede." },
+      { property: "og:site_name", content: "Meso Market Lede" },
+      { property: "og:title", content: "Meso Market Lede — Buurtwinkel in Lede" },
+      { property: "og:description", content: "Uw vriendelijke buurtwinkel aan Markt 8 in Lede." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { property: "og:locale", content: "nl_BE" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       {
@@ -101,7 +101,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="nl-BE">
       <head>
         <HeadContent />
       </head>

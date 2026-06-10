@@ -4,7 +4,6 @@ import { Menu, X, Phone, MapPin } from "lucide-react";
 
 const nav = [
   { to: "/", label: "Home" },
-  { to: "/over", label: "Over de winkel" },
   { to: "/contact", label: "Contact & Openingsuren" },
 ] as const;
 
