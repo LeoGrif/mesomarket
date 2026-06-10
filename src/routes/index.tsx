@@ -10,8 +10,35 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Meso Market Lede is uw vriendelijke buurtwinkel aan Markt 8 in Lede. Dagelijkse service, lokale aanwezigheid en een warm onthaal." },
       { property: "og:title", content: "Meso Market Lede — Uw lokale buurtwinkel" },
       { property: "og:description", content: "Vriendelijke buurtwinkel in het hart van Lede. Markt 8, 9340 Lede." },
+      { property: "og:url", content: "/" },
+      { property: "og:type", content: "website" },
       { property: "og:image", content: hero },
       { name: "twitter:image", content: hero },
+    ],
+    links: [
+      { rel: "canonical", href: "/" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "GroceryStore",
+          name: "Meso Market Lede",
+          image: undefined,
+          telephone: "+32487486152",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Markt 8",
+            postalCode: "9340",
+            addressLocality: "Lede",
+            addressCountry: "BE",
+          },
+          openingHoursSpecification: [
+            { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Friday", "Saturday", "Sunday"], opens: "08:00", closes: "17:30" },
+          ],
+        }),
+      },
     ],
   }),
   component: Home,

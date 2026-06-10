@@ -1,16 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
-import { MapPin, Phone, Clock, Send } from "lucide-react";
-import { useState, type FormEvent } from "react";
-import { z } from "zod";
+import { MapPin, Phone, Clock } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact & Openingsuren — Meso Market Lede" },
-      { name: "description", content: "Contacteer Meso Market Lede aan Markt 8, 9340 Lede. Bekijk onze openingsuren, plan uw route of stuur ons een bericht." },
+      { name: "description", content: "Contacteer Meso Market Lede aan Markt 8, 9340 Lede. Bekijk onze openingsuren en plan eenvoudig uw route." },
       { property: "og:title", content: "Contact & Openingsuren — Meso Market Lede" },
       { property: "og:description", content: "Markt 8, 9340 Lede — Tel. 0487 48 61 52" },
+      { property: "og:url", content: "/contact" },
+      { property: "og:type", content: "website" },
+    ],
+    links: [
+      { rel: "canonical", href: "/contact" },
     ],
   }),
   component: Contact,
@@ -28,36 +31,7 @@ const hours = [
 
 const todayIdx = (new Date().getDay() + 6) % 7; // 0 = maandag
 
-const contactSchema = z.object({
-  name: z.string().trim().min(1, "Vul uw naam in").max(100),
-  email: z.string().trim().email("Ongeldig e-mailadres").max(255),
-  message: z.string().trim().min(1, "Schrijf een bericht").max(1000),
-});
-
 function Contact() {
-  const [status, setStatus] = useState<"idle" | "ok" | "error">("idle");
-  const [errors, setErrors] = useState<Record<string, string>>({});
-
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const fd = new FormData(e.currentTarget);
-    const parsed = contactSchema.safeParse({
-      name: fd.get("name"),
-      email: fd.get("email"),
-      message: fd.get("message"),
-    });
-    if (!parsed.success) {
-      const errs: Record<string, string> = {};
-      parsed.error.issues.forEach((i) => { errs[String(i.path[0])] = i.message; });
-      setErrors(errs);
-      setStatus("error");
-      return;
-    }
-    setErrors({});
-    setStatus("ok");
-    e.currentTarget.reset();
-  }
-
   return (
     <SiteLayout>
       <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
@@ -71,9 +45,9 @@ function Contact() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
-          {/* Info card */}
-          <div className="space-y-6 lg:col-span-1">
+        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+          {/* Info cards */}
+          <div className="space-y-6">
             <div className="rounded-2xl border border-border bg-card p-6 shadow-soft">
               <h2 className="font-display text-xl font-semibold">Bezoek ons</h2>
               <ul className="mt-4 space-y-3 text-sm">
@@ -119,47 +93,15 @@ function Contact() {
             </div>
           </div>
 
-          {/* Map + form */}
-          <div className="space-y-6 lg:col-span-2">
-            <div className="overflow-hidden rounded-2xl border border-border shadow-soft">
-              <iframe
-                title="Google Maps — Meso Market Lede"
-                src="https://www.google.com/maps?q=Meso+Market+Lede,+Markt+8,+9340+Lede&output=embed"
-                className="h-80 w-full md:h-96"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-
-            <form onSubmit={onSubmit} className="rounded-2xl border border-border bg-card p-6 shadow-soft sm:p-8">
-              <h2 className="font-display text-2xl font-semibold">Stuur ons een bericht</h2>
-              <p className="mt-1 text-sm text-muted-foreground">Wij nemen zo snel mogelijk contact met u op.</p>
-
-              <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                <div className="sm:col-span-1">
-                  <label htmlFor="name" className="text-sm font-medium">Naam</label>
-                  <input id="name" name="name" maxLength={100} required className="mt-1.5 w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
-                  {errors.name && <p className="mt-1 text-xs text-destructive">{errors.name}</p>}
-                </div>
-                <div className="sm:col-span-1">
-                  <label htmlFor="email" className="text-sm font-medium">E-mail</label>
-                  <input id="email" name="email" type="email" maxLength={255} required className="mt-1.5 w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
-                  {errors.email && <p className="mt-1 text-xs text-destructive">{errors.email}</p>}
-                </div>
-                <div className="sm:col-span-2">
-                  <label htmlFor="message" className="text-sm font-medium">Bericht</label>
-                  <textarea id="message" name="message" rows={5} maxLength={1000} required className="mt-1.5 w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
-                  {errors.message && <p className="mt-1 text-xs text-destructive">{errors.message}</p>}
-                </div>
-              </div>
-
-              <div className="mt-6 flex flex-wrap items-center gap-3">
-                <button type="submit" className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90">
-                  <Send className="h-4 w-4" /> Verstuur bericht
-                </button>
-                {status === "ok" && <span className="text-sm text-primary">Bedankt! Uw bericht is verzonden.</span>}
-              </div>
-            </form>
+          {/* Map */}
+          <div className="overflow-hidden rounded-2xl border border-border shadow-soft">
+            <iframe
+              title="Google Maps — Meso Market Lede"
+              src="https://www.google.com/maps?q=Meso+Market+Lede,+Markt+8,+9340+Lede&output=embed"
+              className="h-full min-h-[420px] w-full"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
         </div>
       </section>
