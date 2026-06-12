@@ -83,7 +83,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
               <span className="font-display text-lg font-semibold">Meso Market Lede</span>
             </div>
             <p className="mt-3 text-sm text-muted-foreground">
-              Uw lokale buurtwinkel in het hart van Lede. Vriendelijke bediening, elke dag opnieuw.
+              Uw lokale dagwinkel in het hart van Lede. Vriendelijke bediening, elke dag opnieuw.
             </p>
           </div>
           <div>

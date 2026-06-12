@@ -7,10 +7,10 @@ const hero = heroAsset.url;
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Meso Market Lede — Uw lokale buurtwinkel in Lede" },
-      { name: "description", content: "Meso Market Lede is uw vriendelijke buurtwinkel aan Markt 8 in Lede. Dagelijkse service, lokale aanwezigheid en een warm onthaal." },
-      { property: "og:title", content: "Meso Market Lede — Uw lokale buurtwinkel" },
-      { property: "og:description", content: "Vriendelijke buurtwinkel in het hart van Lede. Markt 8, 9340 Lede." },
+      { title: "Meso Market Lede — Uw lokale dagwinkel in Lede" },
+      { name: "description", content: "Meso Market Lede is uw vriendelijke dagwinkel aan Markt 8 in Lede. Dagelijkse service, lokale aanwezigheid en een warm onthaal." },
+      { property: "og:title", content: "Meso Market Lede — Uw lokale dagwinkel" },
+      { property: "og:description", content: "Vriendelijke dagwinkel in het hart van Lede. Markt 8, 9340 Lede." },
       { property: "og:url", content: "/" },
       { property: "og:type", content: "website" },
       { property: "og:image", content: hero },
@@ -51,12 +51,12 @@ function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
-          <img src={hero} alt="Meso Market Lede – verse producten aan de winkel" className="h-full w-full object-cover" width={1600} height={1024} />
+          <img src={hero} alt="Meso Market Lede – verse producten aan de dagwinkel" className="h-full w-full object-cover" width={1600} height={1024} />
           <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/55 to-background" />
         </div>
         <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28 md:py-36">
           <h1 className="mt-5 max-w-3xl font-display text-4xl font-semibold leading-tight text-foreground sm:text-5xl md:text-6xl">
-            Uw lokale buurtwinkel <span className="text-primary">in Lede</span>
+            Uw lokale dagwinkel <span className="text-primary">in Lede</span>
           </h1>
           <p className="mt-5 max-w-xl text-base text-muted-foreground sm:text-lg">
             Dagelijkse service en vriendelijke bediening in het hart van Lede. Stap binnen, wij staan voor u klaar.
