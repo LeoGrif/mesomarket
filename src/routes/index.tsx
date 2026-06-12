@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { MapPin, Phone, Clock, Heart, Users, Store } from "lucide-react";
+import { MapPin, Phone, Clock, Heart, Users } from "lucide-react";
 import { SiteLayout } from "@/components/SiteLayout";
-import hero from "@/assets/hero-store.jpg";
+import heroAsset from "@/assets/storefront.jpg.asset.json";
+const hero = heroAsset.url;
 
 export const Route = createFileRoute("/")({
   head: () => ({
