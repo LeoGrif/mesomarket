@@ -55,9 +55,6 @@ function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/55 to-background" />
         </div>
         <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28 md:py-36">
-          <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-background/80 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary backdrop-blur">
-            <Store className="h-3.5 w-3.5" /> Buurtwinkel in Lede
-          </span>
           <h1 className="mt-5 max-w-3xl font-display text-4xl font-semibold leading-tight text-foreground sm:text-5xl md:text-6xl">
             Uw lokale buurtwinkel <span className="text-primary">in Lede</span>
           </h1>
