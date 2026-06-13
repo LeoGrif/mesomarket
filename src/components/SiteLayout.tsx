@@ -1,11 +1,37 @@
 import { Link } from "@tanstack/react-router";
-import { useState, type ReactNode } from "react";
-import { Menu, X, Phone, MapPin } from "lucide-react";
+import { useEffect, useState, type ReactNode } from "react";
+import { Menu, X, Phone, MapPin, Moon, Sun } from "lucide-react";
 
 const nav = [
   { to: "/", label: "Home" },
   { to: "/contact", label: "Contact & Openingsuren" },
 ] as const;
+
+function ThemeToggle({ className = "" }: { className?: string }) {
+  const [dark, setDark] = useState(false);
+  useEffect(() => {
+    const stored = localStorage.getItem("theme");
+    const prefers = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const isDark = stored ? stored === "dark" : prefers;
+    setDark(isDark);
+    document.documentElement.classList.toggle("dark", isDark);
+  }, []);
+  const toggle = () => {
+    const next = !dark;
+    setDark(next);
+    document.documentElement.classList.toggle("dark", next);
+    localStorage.setItem("theme", next ? "dark" : "light");
+  };
+  return (
+    <button
+      onClick={toggle}
+      aria-label={dark ? "Schakel naar lichte modus" : "Schakel naar donkere modus"}
+      className={`inline-flex h-10 w-10 items-center justify-center rounded-md border border-border text-foreground/80 transition hover:bg-primary-soft hover:text-primary ${className}`}
+    >
+      {dark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+    </button>
+  );
+}
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
