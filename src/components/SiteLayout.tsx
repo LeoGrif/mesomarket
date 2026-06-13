@@ -64,14 +64,18 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             >
               <Phone className="h-4 w-4" /> 0487 48 61 52
             </a>
+            <ThemeToggle className="ml-1" />
           </nav>
-          <button
-            onClick={() => setOpen((o) => !o)}
-            className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-md border border-border"
-            aria-label="Menu"
-          >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+          <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggle />
+            <button
+              onClick={() => setOpen((o) => !o)}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border"
+              aria-label="Menu"
+            >
+              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </div>
         {open && (
           <div className="md:hidden border-t border-border bg-background">
