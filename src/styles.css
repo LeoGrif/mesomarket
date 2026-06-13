@@ -73,6 +73,7 @@
   --input: oklch(1 0 0 / 15%);
   --muted: oklch(0.26 0.02 150);
   --muted-foreground: oklch(0.7 0.015 95);
+  --warm: oklch(0.22 0.02 150);
 }
 
 @layer base {
