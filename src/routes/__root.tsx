@@ -77,19 +77,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Meso Market Lede — Dagwinkel in Lede" },
-      { name: "description", content: "Meso Market Lede — uw vriendelijke dagwinkel aan Markt 8 in Lede." },
       { property: "og:site_name", content: "Meso Market Lede" },
-      { property: "og:title", content: "Meso Market Lede — Dagwinkel in Lede" },
-      { property: "og:description", content: "Meso Market Lede — uw vriendelijke dagwinkel aan Markt 8 in Lede." },
-      { property: "og:type", content: "website" },
       { property: "og:locale", content: "nl_BE" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Meso Market Lede — Dagwinkel in Lede" },
-      { name: "twitter:description", content: "Meso Market Lede — uw vriendelijke dagwinkel aan Markt 8 in Lede." },
       { name: "google-site-verification", content: "1FltLe-46dUuEECOHxbdK-RSHdceUC4rmNk_Ykpx7GY" },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/52ae2ed0-0e16-4ea7-95b8-38da3a61c282/id-preview-7c966038--5475e287-dd9e-4be3-9c95-5fab6ec8306d.lovable.app-1781336843185.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/52ae2ed0-0e16-4ea7-95b8-38da3a61c282/id-preview-7c966038--5475e287-dd9e-4be3-9c95-5fab6ec8306d.lovable.app-1781336843185.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -100,7 +91,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap",
       },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Meso Market Lede",
+          url: "https://mesomarket.lovable.app",
+        }),
+      },
+    ],
   }),
+
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
