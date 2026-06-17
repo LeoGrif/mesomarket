@@ -87,6 +87,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Meso Market Lede — Dagwinkel in Lede" },
       { name: "twitter:description", content: "Meso Market Lede — uw vriendelijke dagwinkel aan Markt 8 in Lede." },
+      { name: "google-site-verification", content: "1FltLe-46dUuEECOHxbdK-RSHdceUC4rmNk_Ykpx7GY" },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/52ae2ed0-0e16-4ea7-95b8-38da3a61c282/id-preview-7c966038--5475e287-dd9e-4be3-9c95-5fab6ec8306d.lovable.app-1781336843185.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/52ae2ed0-0e16-4ea7-95b8-38da3a61c282/id-preview-7c966038--5475e287-dd9e-4be3-9c95-5fab6ec8306d.lovable.app-1781336843185.png" },
     ],
