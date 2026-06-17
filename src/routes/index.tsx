@@ -11,13 +11,13 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Meso Market Lede is uw vriendelijke dagwinkel aan Markt 8 in Lede. Dagelijkse service, lokale aanwezigheid en een warm onthaal." },
       { property: "og:title", content: "Meso Market Lede — Uw lokale dagwinkel" },
       { property: "og:description", content: "Vriendelijke dagwinkel in het hart van Lede. Markt 8, 9340 Lede." },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: "https://mesomarket.lovable.app/" },
       { property: "og:type", content: "website" },
       { property: "og:image", content: hero },
       { name: "twitter:image", content: hero },
     ],
     links: [
-      { rel: "canonical", href: "/" },
+      { rel: "canonical", href: "https://mesomarket.lovable.app/" },
     ],
     scripts: [
       {
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "GroceryStore",
           name: "Meso Market Lede",
-          image: undefined,
+          image: hero,
           telephone: "+32487486152",
           address: {
             "@type": "PostalAddress",
@@ -92,7 +92,7 @@ function Home() {
               <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary-soft text-primary">
                 <f.icon className="h-5 w-5" />
               </div>
-              <h3 className="mt-4 font-display text-xl font-semibold">{f.title}</h3>
+              <h2 className="mt-4 font-display text-xl font-semibold">{f.title}</h2>
               <p className="mt-2 text-sm text-muted-foreground">{f.text}</p>
             </div>
           ))}

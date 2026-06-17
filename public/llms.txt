@@ -1,0 +1,10 @@
+# Meso Market Lede
+
+> Vriendelijke dagwinkel aan Markt 8 in Lede, België. Dagelijkse service, lokale aanwezigheid en een warm onthaal.
+
+Meso Market Lede is een lokale dagwinkel in het hart van Lede. Zes dagen per week open (gesloten op donderdag).
+
+## Pages
+
+- [Home](/): Introductie, locatie en praktische info over de dagwinkel.
+- [Contact & Openingsuren](/contact): Adres, telefoon, route en volledige openingsuren.
