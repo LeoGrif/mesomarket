@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "GroceryStore",
           name: "Meso Market Lede",
-          image: undefined,
+          image: hero,
           telephone: "+32487486152",
           address: {
             "@type": "PostalAddress",
