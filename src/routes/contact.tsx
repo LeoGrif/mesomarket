@@ -9,11 +9,33 @@ export const Route = createFileRoute("/contact")({
       { name: "description", content: "Contacteer Meso Market Lede aan Markt 8, 9340 Lede. Bekijk onze openingsuren en plan eenvoudig uw route." },
       { property: "og:title", content: "Contact & Openingsuren — Meso Market Lede" },
       { property: "og:description", content: "Markt 8, 9340 Lede — Tel. 0487 48 61 52" },
-      { property: "og:url", content: "/contact" },
+      { property: "og:url", content: "https://mesomarket.lovable.app/contact" },
       { property: "og:type", content: "website" },
     ],
     links: [
-      { rel: "canonical", href: "/contact" },
+      { rel: "canonical", href: "https://mesomarket.lovable.app/contact" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "GroceryStore",
+          name: "Meso Market Lede",
+          telephone: "+32487486152",
+          url: "https://mesomarket.lovable.app/contact",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Markt 8",
+            postalCode: "9340",
+            addressLocality: "Lede",
+            addressCountry: "BE",
+          },
+          openingHoursSpecification: [
+            { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Friday", "Saturday", "Sunday"], opens: "08:00", closes: "17:30" },
+          ],
+        }),
+      },
     ],
   }),
   component: Contact,
