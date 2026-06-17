@@ -92,7 +92,7 @@ function Home() {
               <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary-soft text-primary">
                 <f.icon className="h-5 w-5" />
               </div>
-              <h3 className="mt-4 font-display text-xl font-semibold">{f.title}</h3>
+              <h2 className="mt-4 font-display text-xl font-semibold">{f.title}</h2>
               <p className="mt-2 text-sm text-muted-foreground">{f.text}</p>
             </div>
           ))}
